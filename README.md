@@ -1,1 +1,1 @@
-# tic-tac-toe_javafx
+# Tic-Tac-Toe by JavaFx
