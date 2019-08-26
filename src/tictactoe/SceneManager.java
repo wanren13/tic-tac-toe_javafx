@@ -33,6 +33,23 @@ public class SceneManager {
         return sceneHashMap.get(name);
     }
 
+    public static Scene getNewScene(String name) throws Exception
+    {
+        return getNewScene(name, width, height);
+    }
+
+    public static Scene getNewScene(String name, double width, double height) throws Exception
+    {
+        if (sm == null) sm = new SceneManager();
+        FXMLLoader loader = new FXMLLoader(sm.getClass().getResource(name + ".fxml"));
+        Parent node = loader.load();
+        Controller controller = loader.getController();
+        Scene scene = new Scene(node, width, height);
+        scene.setUserData(controller);
+        sceneHashMap.put(name, scene);
+        return scene;
+    }
+
     public static double getWidth() {
         return width;
     }
